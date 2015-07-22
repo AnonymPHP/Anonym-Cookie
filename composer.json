@@ -1,0 +1,33 @@
+{
+  "name": "anonym-php/anonym-cookie",
+  "type": "library",
+  "keywords": [
+    "upload"
+  ],
+  "homepage": "https://gemframework.com",
+  "description": "AnonymFramework Cookie Component",
+  "license": "MIT",
+  "repositories": [
+    {
+      "type": "git",
+      "url": "git://github.com/AnonymPHP/Anonym-Cookie.git"
+    }
+  ],
+  "minimum-stability": "dev",
+  "authors": [
+    {
+      "name": "Vahit Şerif Sağlam",
+      "email": "vahit.serif119@gmail.com",
+      "homepage": "http://www.gemframework.com"
+    }
+  ],
+  "require": {
+    "php": ">=5.4.0",
+    "symfony/finder": "2.7.*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Anonym\\Components\\Cookie\\": "src/Anonym/Components/"
+    }
+  }
+}
