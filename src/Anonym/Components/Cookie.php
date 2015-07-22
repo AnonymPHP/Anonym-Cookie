@@ -49,6 +49,14 @@
         {
             $this->setReposity(new Reposity());
             $this->setEncode($encode);
+            $this->setDefaultEncoder();
+        }
+
+        /**
+         *  Default olarak base64 şifrelemesi kullanılır
+         */
+        private function setDefaultEncoder(){
+            $this->setEncoder( new Base64Encoder());
         }
 
         /**
@@ -139,9 +147,10 @@
          * Girilen name değerini siler
          *
          * @param $name
+         * @return $this
          */
         public function delete($name){
-            $this->set($name, '');
+            return $this->set($name, '');
         }
         /**
          * @return CookieEncoderInterface
@@ -196,11 +205,9 @@
          */
         public function setReposity($reposity)
         {
-
             if ($reposity instanceof ReposityInterface) {
                 $this->reposity = $reposity->getCookies();
             }
-
             return $this;
         }
     }

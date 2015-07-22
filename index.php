@@ -8,3 +8,5 @@
      */
 
      include 'vendor/autoload.php';
+
+    $cookie = new \Anonym\Components\Cookie\Cookie();
