@@ -7,4 +7,4 @@
      *
      */
 
-     include 'vendor/autoloader.php';
+     include 'vendor/autoload.php';
