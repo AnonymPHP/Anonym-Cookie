@@ -1,2 +1,2 @@
 # Anonym-Cookie
-AnonymFramework Cookie Repository
+AnonymFramework Cookie Components
