@@ -8,7 +8,9 @@
      */
 
     namespace Anonym\Components\Cookie;
+
     use Anonym\Components\Cookie\HeadersAlreadySendedException;
+
     /**
      * Class UseCookieHeaders
      * @package Anonym\Components\Cookie
@@ -38,16 +40,18 @@
         {
 
             if (!headers_sent()) {
-                throw new HeadersAlreadySendedException(
-                '
-                 Başlıklarınız zaten gönderilmiş, cookie kullanılamaz.
-                ');
-            }
-            foreach ($this->getCookies() as $cookie) {
-                header($cookie);
-            }
+                foreach ($this->getCookies() as $cookie) {
+                    header($cookie);
+                }
 
-            return $this;
+                return $this;
+            } else {
+                throw new HeadersAlreadySendedException(
+                    '
+                 Başlıklarınız zaten gönderilmiş, cookie kullanılamaz.
+                '
+                );
+            }
         }
 
         /**
