@@ -16,6 +16,7 @@
     class Base64Encoder implements CookieEncoderInterface
     {
 
+
         /**
          * Base64 ile şifreler metni
          *
