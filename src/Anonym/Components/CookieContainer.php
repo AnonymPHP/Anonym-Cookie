@@ -25,6 +25,7 @@
          */
         private static $gCookies;
 
+
         /**
          * Cookie değeri atar
          *

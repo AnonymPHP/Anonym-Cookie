@@ -53,7 +53,7 @@
 
                 foreach ($explode as $ex) {
 
-                    $ex = explode('=', $ex);
+                    $ex = explode('=', $ex, 2);
                     $cookies[trim($ex[0])] = ($ex[1]);
                 }
 
