@@ -9,16 +9,16 @@
 
     namespace Anonym\Components\Cookie;
 
-    use Anonym\Components\Cookie\CookieEncoderInterface;
     use Anonym\Components\Cookie\Http\CookieBag as Reposity;
     use Anonym\Components\Cookie\Http\CookieJar as Generator;
     use InvalidArgumentException;
+    use Anonym\Components\Cookie\CookieInterface;
 
     /**
      * Class Cookie
      * @package Anonym\Components\Cookie
      */
-    class Cookie
+    class Cookie implements CookieInterface
     {
         /**
          * Cookie verilerini tutar
