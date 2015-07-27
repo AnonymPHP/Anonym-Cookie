@@ -2,7 +2,7 @@
   "name": "anonym-php/anonym-cookie",
   "type": "library",
   "keywords": [
-    "upload"
+    "cookie"
   ],
   "homepage": "https://gemframework.com",
   "description": "AnonymFramework Cookie Component",
