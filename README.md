@@ -90,9 +90,9 @@ Verileri göndermek
 Cookie atanması yapıldıktan sonra bunun tarayıcıya bildirilmesi gerekir.
 
 ```php
-
 use Anonym\Components\Cookie\UseCookieHeaders; 
 
 $useHeaders = new UseCookieHeaders();
 $useHeaders->useCookies();
 ```
+
