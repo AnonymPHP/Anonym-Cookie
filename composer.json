@@ -1,6 +1,7 @@
 {
   "name": "anonym-php/anonym-cookie",
   "type": "library",
+  "version": "1.0.0",
   "keywords": [
     "cookie"
   ],
