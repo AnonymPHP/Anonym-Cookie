@@ -47,11 +47,14 @@
          *
          * @param bool $encode
          */
-        public function __construct($encode = true)
+        public function __construct($encode = false)
         {
-            $this->setReposity(new Reposity());
+            $this->setReposity( new Reposity());
             $this->setEncode($encode);
-            $this->setDefaultEncoder();
+
+            if (true === $encode) {
+                $this->setDefaultEncoder();
+            }
         }
 
         /**
