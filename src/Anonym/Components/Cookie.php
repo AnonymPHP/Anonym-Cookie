@@ -44,6 +44,8 @@
 
         /**
          * Sınıfı başlatır
+         *
+         * @param bool $encode
          */
         public function __construct($encode = true)
         {
