@@ -1,75 +1,78 @@
 <?php
+/**
+ * Bu Dosya AnonymFramework'e ait bir dosyadır.
+ *
+ * @author vahitserifsaglam <vahit.serif119@gmail.com>
+ * @see http://gemframework.com
+ *
+ */
+
+namespace Anonym\Components\Cookie;
+
+use Anonym\Components\Cookie\HeadersAlreadySendedException;
+
+/**
+ * Class UseCookieHeaders
+ * @package Anonym\Components\Cookie
+ */
+class UseCookieHeaders
+{
     /**
-     * Bu Dosya AnonymFramework'e ait bir dosyadır.
-     *
-     * @author vahitserifsaglam <vahit.serif119@gmail.com>
-     * @see http://gemframework.com
-     *
+     * @var array
      */
-
-    namespace Anonym\Components\Cookie;
-
-    use Anonym\Components\Cookie\HeadersAlreadySendedException;
+    private $cookies;
 
     /**
-     * Class UseCookieHeaders
-     * @package Anonym\Components\Cookie
+     * Cookie dosyalarının atanabilmesi için sınıfı hazırlar
      */
-    class UseCookieHeaders
+    public function __construct()
     {
-        /**
-         * @var array
-         */
-        private $cookies;
+        $this->setCookies(CookieContainer::getCookies());
+    }
 
-        /**
-         * Cookie dosyalarının atanabilmesi için sınıfı hazırlar
-         */
-        public function __construct()
-        {
-            $this->setCookies(CookieContainer::getCookies());
-        }
+    /**
+     * Cookie leri header olarak atar
+     *
+     * @throws HeadersAlreadySendedException
+     * @return $this
+     */
+    public function useCookies()
+    {
 
-        /**
-         * Cookie leri header olarak atar
-         *
-         * @throws HeadersAlreadySendedException
-         * @return $this
-         */
-        public function useCookies()
-        {
+        if (!headers_sent()) {
 
-            if (!headers_sent()) {
+            if (count($this->getCookies())) {
                 foreach ($this->getCookies() as $cookie) {
                     header($cookie);
                 }
 
-                return $this;
-            } else {
-                throw new HeadersAlreadySendedException(
-                    '
+            }
+            return $this;
+        } else {
+            throw new HeadersAlreadySendedException(
+                '
                  Başlıklarınız zaten gönderilmiş, cookie kullanılamaz.
                 '
-                );
-            }
-        }
-
-        /**
-         * @return mixed
-         */
-        public function getCookies()
-        {
-            return $this->cookies;
-        }
-
-        /**
-         * @param mixed $cookies
-         * @return UseCookieHeaders
-         */
-        public function setCookies($cookies)
-        {
-            $this->cookies = $cookies;
-
-            return $this;
+            );
         }
     }
+
+    /**
+     * @return mixed
+     */
+    public function getCookies()
+    {
+        return $this->cookies;
+    }
+
+    /**
+     * @param mixed $cookies
+     * @return UseCookieHeaders
+     */
+    public function setCookies($cookies)
+    {
+        $this->cookies = $cookies;
+
+        return $this;
+    }
+}
