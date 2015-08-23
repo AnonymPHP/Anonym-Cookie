@@ -1,27 +1,29 @@
 <?php
-    /**
-     * Bu Dosya AnonymFramework'e ait bir dosyadır.
-     *
-     * @author vahitserifsaglam <vahit.serif119@gmail.com>
-     * @see http://gemframework.com
-     *
-     */
+/**
+ * Bu Dosya AnonymFramework'e ait bir dosyadır.
+ *
+ * @author vahitserifsaglam <vahit.serif119@gmail.com>
+ * @see http://gemframework.com
+ *
+ */
 
-    namespace Anonym\Components\Cookie;
-    use Exception;
+namespace Anonym\Components\Cookie;
 
+use Exception;
+
+/**
+ * Class HeadersAlreadySendedException
+ * @package Anonym\Components\Cookie
+ */
+class HeadersAlreadySendedException extends Exception
+{
     /**
-     * Class HeadersAlreadySendedException
-     * @package Anonym\Components\Cookie
+     * İstisnayı oluşturur
+     *
+     * @param string $message
      */
-    class HeadersAlreadySendedException extends Exception
+    public function __construct($message = '')
     {
-        /**
-         * İstisnayı oluşturur
-         *
-         * @param string $message
-         */
-        public function __construct($message = ''){
-            $this->message = $message;
-        }
+        $this->message = $message;
     }
+}

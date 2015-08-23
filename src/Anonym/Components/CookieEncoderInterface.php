@@ -1,33 +1,34 @@
 <?php
+/**
+ * Bu Dosya AnonymFramework'e ait bir dosyadır.
+ *
+ * @author vahitserifsaglam <vahit.serif119@gmail.com>
+ * @see http://gemframework.com
+ *
+ */
+
+namespace Anonym\Components\Cookie;
+
+/**
+ * Interface CookieEncoderInterface
+ * @package Anonym\Components\Cookie
+ */
+interface CookieEncoderInterface
+{
+
     /**
-     * Bu Dosya AnonymFramework'e ait bir dosyadır.
+     * Metni şifreler
      *
-     * @author vahitserifsaglam <vahit.serif119@gmail.com>
-     * @see http://gemframework.com
-     *
+     * @param string $value
+     * @return string
      */
+    public function encode($value = '');
 
-    namespace Anonym\Components\Cookie;
     /**
-     * Interface CookieEncoderInterface
-     * @package Anonym\Components\Cookie
+     * Metnin şifresini çözer
+     *
+     * @param string $value
+     * @return string
      */
-    interface CookieEncoderInterface
-    {
-
-        /**
-         * Metni şifreler
-         *
-         * @param string $value
-         * @return string
-         */
-        public function encode($value = '');
-
-        /**
-         * Metnin şifresini çözer
-         *
-         * @param string $value
-         * @return string
-         */
-        public function decode($value = '');
-    }
+    public function decode($value = '');
+}
