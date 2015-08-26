@@ -29,7 +29,7 @@ class CookieBag implements ReposityInterface
     public function __construct()
     {
 
-        $get = getallheaders();
+        $get = function_exists('getallheader') ? getallheaders(): [];
         if (isset($get['Cookie'])) {
             $this->cookies = $this->rendeCookieString($get['Cookie']);
         } else {
