@@ -161,6 +161,29 @@ class Cookie implements CookieInterface
     }
 
     /**
+     * this cookie life very long time
+     *
+     * @param string $name
+     * @param string $value
+     * @param string $path
+     * @param null   $domain
+     * @param bool   $secure
+     * @param bool   $httpOnly
+     * @return $this
+     */
+    public function forever(
+        $name = '',
+        $value = '',
+        $path = '/',
+        $domain = null,
+        $secure = false,
+        $httpOnly = false
+    ) {
+        $this->set($name, $value, 2628000, $path, $domain, $secure, $httpOnly);
+        return $this;
+    }
+
+    /**
      * @return CookieEncoderInterface
      */
     public function getEncoder()
