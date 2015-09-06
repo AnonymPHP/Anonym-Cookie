@@ -8,12 +8,13 @@
 namespace Anonym\Components\Cookie\Http;
 
 use Anonym\Components\Cookie\ReposityInterface;
+use Anonym\Components\HttpClient\RequestHeaders;
 
 /**
  * Class CookieBag
  * @package Anonym\Components\Cookie\Http
  */
-class CookieBag implements ReposityInterface
+class CookieBag extends RequestHeaders implements ReposityInterface
 {
 
     /**
@@ -28,8 +29,9 @@ class CookieBag implements ReposityInterface
      */
     public function __construct()
     {
+        parent::__construct();
 
-        $get = function_exists('getallheader') ? getallheaders(): [];
+        $get = $this->headers;
         if (isset($get['Cookie'])) {
             $this->cookies = $this->rendeCookieString($get['Cookie']);
         } else {
